@@ -36,7 +36,10 @@ export default function VolumeDetail() {
         alt={volume.title}
       />
 
-      <VolumeNavigation volumes={volumes} volumeIndex={volumeIndex} />
+      <VolumeNavigation
+        prev={volumes[volumeIndex - 1]}
+        next={volumes[volumeIndex + 1]}
+      />
     </div>
   );
 }
