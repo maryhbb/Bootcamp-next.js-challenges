@@ -1,21 +1,21 @@
 import Link from "next/link";
 
-const VolumeNavigation = ({ volumes, slugIndex }) => {
-  const prevSlug = volumes[slugIndex - 1];
-  const nextSlug = volumes[slugIndex + 1];
+const VolumeNavigation = ({ volumes, volumeIndex }) => {
+  const prevVolume = volumes[volumeIndex - 1];
+  const nextVolume = volumes[volumeIndex + 1];
 
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
       <div>
-        {prevSlug ? (
-          <Link href={`/volumes/${prevSlug.slug}`}>Previous</Link>
+        {prevVolume ? (
+          <Link href={`/volumes/${prevVolume.slug}`}>Previous</Link>
         ) : (
           <span>Previous</span>
         )}
       </div>
       <div>
-        {nextSlug ? (
-          <Link href={`/volumes/${nextSlug.slug}`}>Next</Link>
+        {nextVolume ? (
+          <Link href={`/volumes/${nextVolume.slug}`}>Next</Link>
         ) : (
           <span>Next</span>
         )}
