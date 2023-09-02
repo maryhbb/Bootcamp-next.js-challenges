@@ -1,11 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { volumes } from "../../../lib/data";
+import VolumeNavigation from "@/components/VolumeNavigation";
 
-const slug = volumes.find(({ slug }) => slug === "the-return-of-the-king");
+const slugIndex = volumes.findIndex(
+  ({ slug }) => slug === "the-return-of-the-king"
+);
+const slug = volumes[slugIndex];
+
 export default function TheReturnOfTheKing() {
   return (
-    <div>
+    <div style={{ padding: "4rem" }}>
       <Link href="/volumes">Back to all Volumes</Link>
 
       <h1>{slug.title}</h1>
@@ -20,7 +25,15 @@ export default function TheReturnOfTheKing() {
           );
         })}
       </ul>
-      <Image src={slug.cover} height={444} width={444} alt={slug.title} />
+      <Image
+        style={{ display: "block", margin: "0 auto" }}
+        src={slug.cover}
+        height={444}
+        width={444}
+        alt={slug.title}
+      />
+
+      <VolumeNavigation volumes={volumes} slugIndex={slugIndex} />
     </div>
   );
 }

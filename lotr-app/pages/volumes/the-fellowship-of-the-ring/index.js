@@ -1,12 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { volumes } from "../../../lib/data";
+import VolumeNavigation from "@/components/VolumeNavigation";
 
-const slug = volumes.find(({ slug }) => slug === "the-fellowship-of-the-ring");
+const slugIndex = volumes.findIndex(
+  ({ slug }) => slug === "the-fellowship-of-the-ring"
+);
+const slug = volumes[slugIndex];
 
 export default function TheFellowshipOfTheRing() {
   return (
-    <div>
+    <div style={{ padding: "4rem"}}>
       <Link href="/volumes">Back to all Volumes</Link>
 
       <h1>{slug.title}</h1>
@@ -21,7 +25,17 @@ export default function TheFellowshipOfTheRing() {
           );
         })}
       </ul>
-      <Image src={slug.cover} height={444} width={444} alt={slug.title} />
+      <Image
+        style={{ display: 'block', margin: '0 auto'}}
+        src={slug.cover}
+        height={444}
+        width={444}
+        alt={slug.title}
+      />
+
+      <VolumeNavigation volumes={volumes} slugIndex={slugIndex} />
     </div>
   );
 }
+
+//http://localhost:3000/volumes/the-fellowship-of-the-ring
