@@ -12,9 +12,10 @@ const StyledBox = styled.div`
   }
 `;
 
-const BoxWithStyledComponents = ({ $isBlack }) => {
-  return <StyledBox $isBlack={$isBlack}></StyledBox>;
-};
+// const BoxWithStyledComponents = ({ $isBlack }) => {
+//   return <StyledBox $isBlack={$isBlack}></StyledBox>;
+// };
 
-export default BoxWithStyledComponents;
+// export default BoxWithStyledComponents;
 
+export default StyledBox

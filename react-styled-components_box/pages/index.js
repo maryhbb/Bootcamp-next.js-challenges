@@ -1,4 +1,5 @@
 import BoxWithClassName from "../components/BoxWithClassName/BoxWithClassName.js";
+import StyledBox from "@/components/BoxWithStyledComponents/BoxWithStyledComponents.js";
 import BoxWithStyledComponents from "@/components/BoxWithStyledComponents/BoxWithStyledComponents.js";
 import styled from "styled-components";
 
@@ -12,8 +13,8 @@ export default function HomePage() {
       <BoxWithClassName />
       <BoxWithClassName isBlack />
 
-      <BoxWithStyledComponents />
-      <BoxWithStyledComponents $isBlack />
+      <StyledBox />
+      <StyledBox $isBlack />
     </FlexBox>
   );
 }
