@@ -46,10 +46,23 @@ export default function App({ Component, pageProps }) {
     );
   }
 
+  function toggleLight(name) {
+    setLights((lights) =>
+      lights.map((light) => {
+        return light.name === name ? { ...light, isOn: !light.isOn } : light;
+      })
+    );
+  }
+
   return (
     <Layout>
       <GlobalStyle />
-      <Component {...pageProps} lights={lights} setAllLights={setAllLights} />
+      <Component
+        {...pageProps}
+        lights={lights}
+        toggleLight={toggleLight}
+        setAllLights={setAllLights}
+      />
     </Layout>
   );
 }
