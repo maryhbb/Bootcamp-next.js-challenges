@@ -38,14 +38,18 @@ const initialLights = [
 ];
 
 export default function App({ Component, pageProps }) {
-  const [lights] = useState(initialLights);
+  const [lights, setLights] = useState(initialLights);
+
+  function setAllLights(value) {
+    return setLights((lights) =>
+      lights.map((light) => ({ ...light, isOn: value }))
+    );
+  }
 
   return (
     <Layout>
       <GlobalStyle />
-
-      <div>salammm next.js</div>
-      <Component {...pageProps} lights={lights} />
+      <Component {...pageProps} lights={lights} setAllLights={setAllLights} />
     </Layout>
   );
 }
