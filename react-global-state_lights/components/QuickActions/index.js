@@ -11,12 +11,8 @@ export default function QuickActions({
   lights,
   setAllLightsOn,
   setAllLightsOff,
+  isOnCount,
 }) {
-  const isOnCount = lights.reduce(
-    (onCount, light) => (light.isOn ? onCount + 1 : onCount),
-    0
-  );
-
   return (
     <StyledQuickActions>
       <Button

@@ -54,14 +54,20 @@ export default function App({ Component, pageProps }) {
     );
   }
 
+  const isOnCount = lights.reduce(
+    (onCount, light) => (light.isOn ? onCount + 1 : onCount),
+    0
+  );
+
   return (
-    <Layout>
+    <Layout isDimmed={isOnCount === 0}>
       <GlobalStyle />
       <Component
         {...pageProps}
         lights={lights}
         toggleLight={toggleLight}
         setAllLights={setAllLights}
+        isOnCount={isOnCount}
       />
     </Layout>
   );

@@ -1,7 +1,7 @@
 import Link from "../components/Link";
 import QuickActions from "../components/QuickActions";
 
-export default function Actions({ lights, setAllLights }) {
+export default function Actions({ lights, setAllLights, isOnCount }) {
   const setAllLightsOn = () => setAllLights(true);
   const setAllLightsOff = () => setAllLights(false);
 
@@ -13,6 +13,7 @@ export default function Actions({ lights, setAllLights }) {
         lights={lights}
         setAllLightsOn={setAllLightsOn}
         setAllLightsOff={setAllLightsOff}
+        isOnCount={isOnCount}
       />
     </>
   );
