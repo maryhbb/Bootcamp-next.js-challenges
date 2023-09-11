@@ -1,7 +1,14 @@
 import Card from "../../components/Card";
 import Layout from "../../components/Layout";
+import useSWR from "swr";
 
-export default function Character() {
+
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
+export default function Character(id) {
+
+  const { data, error, isLoading } = useSWR(` https://swapi.dev/api/people/${id}`, fetcher)
   const id = 1;
 
   return (

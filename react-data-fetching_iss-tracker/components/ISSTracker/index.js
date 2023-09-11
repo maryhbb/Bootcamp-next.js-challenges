@@ -34,7 +34,7 @@ export default function ISSTracker() {
   //   };
   // }, []);
 
-  const handleReload = () => {
+  const handleRefresh = () => {
     mutate(URL);
   };
 
@@ -50,7 +50,7 @@ export default function ISSTracker() {
       <Controls
         longitude={data.longitude}
         latitude={data.latitude}
-        onReload={() => handleReload()}
+        onRefresh={() => handleRefresh()}
       />
     </main>
   );
